@@ -6,34 +6,31 @@
 
 <style>
 body {
-  font-family: sans-serif;
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background: #fafafa;
-  text-align: center;
 }
 
-h1 {
-  margin: 30px;
+.top {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  width: 80%;
-  margin: auto;
-}
-
-.gallery-item {
-  cursor: pointer;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 10px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-/* 🔥 팝업 */
 .modal {
   display: none;
   position: fixed;
@@ -41,27 +38,26 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: black;
   justify-content: center;
   align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  width: 300px;
+  flex-direction: column;
 }
 
 .modal img {
-  width: 100%;
-  border-radius: 10px;
+  width: 80%;
+  max-width: 300px;
+}
+
+.modal p {
+  color: white;
+  margin-top: 10px;
 }
 
 .close {
-  margin-top: 10px;
+  color: white;
+  margin-top: 15px;
   cursor: pointer;
-  color: gray;
 }
 
 </style>
@@ -69,37 +65,22 @@ h1 {
 
 <body>
 
-<h1>📸 My Gallery</h1>
+<div class="top">Jiyoon Gallery</div>
 
 <div class="gallery">
-
-  <div class="gallery-item" onclick="openModal('img1.jpg', '저는 바다를 좋아하고 또 각종 페스티벌, 카페 탐방 등 새로운 곳을 탐험하는 걸 좋아합니다ㅎ 제일 좋아하는 장소는 저희 집이긴 합니다')">
-    <img src="img1.jpg">
-  </div>
-
-  <div class="gallery-item" onclick="openModal('img2.jpg', '저는 코알라를 닮았따고 자주 놀림을 당합니다. ㅠㅠ 제가 싫어하는 저의 별명입니다')">
-    <img src="img2.jpg">
-  </div>
-
-  <div class="gallery-item" onclick="openModal('img3.jpg', '최근 몇 달간 귀멸의 칼날에 뒤늦게 빠졌씁니다. 탄지로가 너무 좋습니다. 곧 "무한성" 영화가 재개봉 하는데 저랑 귀멸에 칼날에 입문하실 분들 구합니다.')">
-    <img src="img3.jpg">
-  </div>
-
-  <div class="gallery-item" onclick="openModal('img4.jpg', '저는 깡아지를 참 좋아합니다. 특히 이렇게 생긴 똥깡아지 너무 넘무 귀여워서 마음이 힘듭니다')">
-    <img src="img4.jpg">
-  </div>
-
+  <img src="img1.jpg" onclick="openModal('img1.jpg','여행에서 찍은 순간')">
+  <img src="img2.jpg" onclick="openModal('img2.jpg','친구와 함께한 하루')">
+  <img src="img3.jpg" onclick="openModal('img3.jpg','감성 풍경')">
+  <img src="img4.jpg" onclick="openModal('img4.jpg','일상의 기록')">
 </div>
 
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <img id="modal-img">
-    <p id="modal-text"></p>
-    <div class="close" onclick="closeModal()">닫기</div>
-  </div>
+  <img id="modal-img">
+  <p id="modal-text"></p>
+  <div class="close" onclick="closeModal()">닫기</div>
 </div>
 
-<a href="index.html">← 돌아가기</a>
+<a href="index.html" style="display:block;text-align:center;padding:20px;">← 돌아가기</a>
 
 <script>
 function openModal(img, text) {
