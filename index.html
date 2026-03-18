@@ -2,44 +2,49 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>최지윤</title>
+<title>Jiyoon Portfolio</title>
 
 <style>
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background: #fafafa;
+}
+
+.header {
   text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid #ddd;
 }
 
-.container {
-  padding: 60px 20px;
-}
-
-.profile {
-  width: 120px;
-  height: 120px;
+.profile-img {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, #feda75, #d62976, #962fbf) border-box;
 }
 
 h1 {
-  margin: 15px 0 5px;
+  margin: 10px 0 5px;
+  font-size: 22px;
 }
 
 .bio {
-  color: gray;
-  margin-bottom: 20px;
+  color: #666;
+  font-size: 14px;
 }
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  margin-top: 15px;
+  padding: 8px 20px;
+  border-radius: 8px;
   border: 1px solid #ddd;
-  border-radius: 10px;
   text-decoration: none;
   color: black;
-  margin-top: 15px;
   transition: 0.3s;
 }
 
@@ -48,13 +53,41 @@ h1 {
   color: white;
 }
 
-.card {
-  width: 80%;
-  margin: 30px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+.highlights {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.highlight {
+  text-align: center;
+  font-size: 12px;
+}
+
+.highlight div {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.preview img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
 }
 
 </style>
@@ -62,18 +95,39 @@ h1 {
 
 <body>
 
-<div class="container">
-  <img src="profile.jpg" class="profile">
+<div class="header">
+  <img src="profile.jpg" class="profile-img">
   <h1>Jiyoon</h1>
-  <p class="bio">Creative Thinker · Portfolio</p>
+  <p class="bio">📍 Seoul · Portfolio</p>
 
-  <a href="like.html" class="btn">📸 내 갤러리 클릭 </a>
+  <a href="like.html" class="btn">View Gallery</a>
 </div>
 
-<div class="card">
-  <h2>About Me</h2>
-  <p>저는 새로운 경험을 쌓는 것을 매우 좋아합니당</p>
+
+<div class="highlights">
+  <div class="highlight">
+    <div>📸</div>
+    <span>Photo</span>
+  </div>
+  <div class="highlight">
+    <div>💡</div>
+    <span>Idea</span>
+  </div>
+  <div class="highlight">
+    <div>🎧</div>
+    <span>Daily</span>
+  </div>
 </div>
+
+
+<div class="preview">
+  <img src="img1.jpg">
+  <img src="img2.jpg">
+  <img src="img3.jpg">
+</div>
+
+</body>
+</html>
 
 <div class="card">
   <h2>Interest</h2>
