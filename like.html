@@ -8,29 +8,40 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #fafafa;
+  background: linear-gradient(to bottom, #fafafa, #eeeeee);
 }
 
+/* 상단 */
 .top {
   padding: 15px;
-  border-bottom: 1px solid #ddd;
   text-align: center;
   font-weight: bold;
 }
 
+/* 갤러리 */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  column-count: 2;
+  column-gap: 10px;
+  padding: 10px;
 }
 
-.gallery img {
+.item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.item img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: auto;
+  display: block;
   cursor: pointer;
 }
 
+/* 팝업 */
 .modal {
   display: none;
   position: fixed;
@@ -38,26 +49,29 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
 .modal img {
-  width: 80%;
-  max-width: 300px;
+  max-width: 85%;
+  max-height: 70%;
+  border-radius: 10px;
 }
 
 .modal p {
   color: white;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 14px;
 }
 
 .close {
-  color: white;
   margin-top: 15px;
+  color: white;
   cursor: pointer;
+  font-size: 14px;
 }
 
 </style>
@@ -65,13 +79,21 @@ body {
 
 <body>
 
-<div class="top">Jiyoon Gallery</div>
+<div class="top">📸 Jiyoon Gallery</div>
 
 <div class="gallery">
-  <img src="img1.jpg" onclick="openModal('img1.jpg','여행에서 찍은 순간')">
-  <img src="img2.jpg" onclick="openModal('img2.jpg','친구와 함께한 하루')">
-  <img src="img3.jpg" onclick="openModal('img3.jpg','감성 풍경')">
-  <img src="img4.jpg" onclick="openModal('img4.jpg','일상의 기록')">
+  <div class="item">
+    <img src="img1.jpg" onclick="openModal('img1.jpg','햇살 좋던 날')">
+  </div>
+  <div class="item">
+    <img src="img2.jpg" onclick="openModal('img2.jpg','친구와의 순간')">
+  </div>
+  <div class="item">
+    <img src="img3.jpg" onclick="openModal('img3.jpg','감성 풍경')">
+  </div>
+  <div class="item">
+    <img src="img4.jpg" onclick="openModal('img4.jpg','기록하고 싶은 하루')">
+  </div>
 </div>
 
 <div class="modal" id="modal">
