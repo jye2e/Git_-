@@ -1,19 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <title>내 소개</title>
+<meta charset="UTF-8">
+<title>Jiyoon Portfolio</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+  }
+
+  header {
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+  }
+
+  header h1 {
+    font-size: 48px;
+  }
+
+  header p {
+    margin-top: 15px;
+    font-size: 20px;
+    opacity: 0.9;
+  }
+
+  /* 🔥 프로필 사진 */
+  .profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 25px;
+    object-fit: cover;
+    border: 4px solid white;
+  }
+
+  .container {
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .card {
+    background: white;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    animation: fadeUp 1s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  h2 {
+    margin-bottom: 15px;
+    border-left: 5px solid #667eea;
+    padding-left: 10px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  footer {
+    text-align: center;
+    color: white;
+    padding: 30px;
+  }
+
+  /* 애니메이션 */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+</style>
 </head>
 
 <body>
 
-<h1> 안녕하세요 !!!!</h1>
+<header>
+  <h1>Hi, I'm Jiyoon 👋</h1>
 
-<h2>ABOUT ME</h2>
-<P>대학생</P>
+  <!-- 📸 여기 사진 들어감 -->
+  <img src="profile.jpg" class="profile">
 
-<H2>EDUCATION</H2>
-<ul>
-<li>안녕</li>
-</ul>
+  <p>Creative Thinker | Future Web Planner</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>🙋‍♀️ About Me</h2>
+    <p>
+      새로운 서비스 아이디어를 고민하는 것을 좋아하는 대학생입니다.
+      사용자 경험을 설계하는 사람이 되는 것이 목표입니다.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🎓 Education</h2>
+    <ul>
+      <li>OO대학교 재학 중</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>💡 Interests</h2>
+    <ul>
+      <li>Web Development</li>
+      <li>Service Planning</li>
+      <li>Creative Idea</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🚀 Activities</h2>
+    <ul>
+      <li>동아리 활동</li>
+      <li>서비스 기획 경험</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📞 Contact</h2>
+    <p>Email: your@email.com</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Jiyoon Portfolio
+</footer>
+
 </body>
 </html>
