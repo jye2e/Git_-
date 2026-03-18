@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>나의 게시물</title>
 
 <style>
@@ -41,6 +42,19 @@ body {
   height: auto;
   display: block;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.item img:hover {
+  transform: scale(1.03);
+}
+
+
+.like {
+  text-align: right;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .modal {
@@ -54,6 +68,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation: fadeIn 0.3s ease;
 }
 
 .modal img {
@@ -75,26 +90,55 @@ body {
   font-size: 14px;
 }
 
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+a {
+  text-decoration: none;
+  color: #d62976;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 1;
+  }
+
+  .top {
+    font-size: 20px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div class="top">📸 게시물 사진 클릭하기!!  </div>
+<div class="top">📸 게시물 사진 클릭하기!!</div>
 
 <div class="gallery">
+
   <div class="item">
     <img src="img1.jpg" onclick="openModal('img1.jpg','저는 바다를 좋아하고 또 각종 페스티벌, 카페 탐방 등 새로운 곳을 탐험하는 걸 좋아합니다ㅎ 제일 좋아하는 장소는 저희 집이긴 합니다')">
+    <div class="like" onclick="toggleLike(this)">🤍</div>
   </div>
+
   <div class="item">
     <img src="img2.jpg" onclick="openModal('img2.jpg','저는 코알라를 닮았따고 자주 놀림을 당합니다. ㅠㅠ 제가 싫어하는 저의 별명입니다 여러분이 보시기엔 닮았나요? 아니죠?')">
+    <div class="like" onclick="toggleLike(this)">🤍</div>
   </div>
+
   <div class="item">
     <img src="img3.jpg" onclick="openModal('img3.jpg','최근 몇 달간 귀멸의 칼날에 뒤늦게 빠졌씁니다. 탄지로가 너무 좋습니다. ㅎㅎ 곧 무한성 영화가 재개봉 하는데 저랑 귀멸에 칼날에 입문하실 분들 구합니다. 가티 영화봐요!! 진짜루.')">
+    <div class="like" onclick="toggleLike(this)">🤍</div>
   </div>
+
   <div class="item">
     <img src="img4.jpg" onclick="openModal('img4.jpg','저는 깡아지를 참 좋아합니다. 특히 이렇게 생긴 똥깡아지 너무 넘무 귀여워서 마음이 힘듭니다. 혹시 키우신다면 제보 부탁드려요')">
+    <div class="like" onclick="toggleLike(this)">🤍</div>
   </div>
+
 </div>
 
 <div class="modal" id="modal">
@@ -114,6 +158,14 @@ function openModal(img, text) {
 
 function closeModal() {
   document.getElementById("modal").style.display = "none";
+}
+
+function toggleLike(el) {
+  if (el.innerText === "🤍") {
+    el.innerText = "❤️";
+  } else {
+    el.innerText = "🤍";
+  }
 }
 </script>
 
