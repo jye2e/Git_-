@@ -2,39 +2,67 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>My Gallery</title>
+<title>Gallery</title>
 
 <style>
-  body {
-    font-family: sans-serif;
-    margin: 0;
-    background: #fafafa;
-    text-align: center;
-  }
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #fafafa;
+  text-align: center;
+}
 
-  h1 {
-    margin: 30px;
-  }
+h1 {
+  margin: 30px;
+}
 
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    width: 80%;
-    margin: auto;
-  }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 80%;
+  margin: auto;
+}
 
-  .gallery img {
-    width: 100%;
-    border-radius: 10px;
-  }
+.gallery-item {
+  cursor: pointer;
+}
 
-  a {
-    display: inline-block;
-    margin: 30px;
-    text-decoration: none;
-    color: black;
-  }
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* 🔥 팝업 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.close {
+  margin-top: 10px;
+  cursor: pointer;
+  color: gray;
+}
 
 </style>
 </head>
@@ -44,9 +72,46 @@
 <h1>📸 My Gallery</h1>
 
 <div class="gallery">
-  <img src="img1.jpg">
-  <img src="img2.jpg">
-  <img src="img3.jpg">
-  <img src="img4.jpg">
+
+  <div class="gallery-item" onclick="openModal('img1.jpg', '저는 바다를 좋아하고 또 각종 페스티벌, 카페 탐방 등 새로운 곳을 탐험하는 걸 좋아합니다ㅎ 제일 좋아하는 장소는 저희 집이긴 합니다')">
+    <img src="img1.jpg">
+  </div>
+
+  <div class="gallery-item" onclick="openModal('img2.jpg', '저는 코알라를 닮았따고 자주 놀림을 당합니다. ㅠㅠ 제가 싫어하는 저의 별명입니다')">
+    <img src="img2.jpg">
+  </div>
+
+  <div class="gallery-item" onclick="openModal('img3.jpg', '최근 몇 달간 귀멸의 칼날에 뒤늦게 빠졌씁니다. 탄지로가 너무 좋습니다. 곧 "무한성" 영화가 재개봉 하는데 저랑 귀멸에 칼날에 입문하실 분들 구합니다.')">
+    <img src="img3.jpg">
+  </div>
+
+  <div class="gallery-item" onclick="openModal('img4.jpg', '저는 깡아지를 참 좋아합니다. 특히 이렇게 생긴 똥깡아지 너무 넘무 귀여워서 마음이 힘듭니다')">
+    <img src="img4.jpg">
+  </div>
 
 </div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <img id="modal-img">
+    <p id="modal-text"></p>
+    <div class="close" onclick="closeModal()">닫기</div>
+  </div>
+</div>
+
+<a href="index.html">← 돌아가기</a>
+
+<script>
+function openModal(img, text) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal-img").src = img;
+  document.getElementById("modal-text").innerText = text;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
